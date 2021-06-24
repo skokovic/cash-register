@@ -1,26 +1,55 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+// import "./App.css";
+import "@fontsource/roboto/300.css";
+import "@fontsource/roboto/400.css";
+import "@fontsource/roboto/500.css";
+import "@fontsource/roboto/700.css";
+import PermanentDrawer, {
+  drawerWidth,
+} from "./components/Drawer/PermanentDrawer";
+import React from "react";
+import Box from "@material-ui/core/Box";
+import { BrowserRouter as Router } from "react-router-dom";
+import CssBaseline from "@material-ui/core/CssBaseline";
+import AppBar from "@material-ui/core/AppBar";
+import Toolbar from "@material-ui/core/Toolbar";
+import Typography from "@material-ui/core/Typography";
+import PageRouter from "./pages/PageRouter";
+import Container from "@material-ui/core/Container";
 
-function App() {
+const App = () => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
+    <Router>
+      <Box sx={{ display: "flex", justifyContent: "center" }}>
+        <CssBaseline />
+
+        <AppBar
+          position="fixed"
+          sx={{
+            width: `calc(100% - ${drawerWidth}px)`,
+            ml: `${drawerWidth}px`,
+          }}
         >
-          Learn React
-        </a>
-      </header>
-    </div>
+          <Toolbar>
+            <Typography variant="h6" noWrap component="div">
+              Cash app
+            </Typography>
+          </Toolbar>
+        </AppBar>
+
+        <PermanentDrawer />
+
+        <Box
+          component="main"
+          sx={{ flexGrow: 1, bgcolor: "background.default", p: 3 }}
+        >
+          <Toolbar />
+          <Container maxWidth="sm">
+            <PageRouter />
+          </Container>
+        </Box>
+      </Box>
+    </Router>
   );
-}
+};
 
 export default App;
