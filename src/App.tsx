@@ -31,7 +31,7 @@ const App = () => {
         >
           <Toolbar>
             <Typography variant="h6" noWrap component="div">
-              Cash app
+              Cash Register App
             </Typography>
           </Toolbar>
         </AppBar>
